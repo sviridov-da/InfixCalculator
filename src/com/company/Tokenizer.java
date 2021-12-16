@@ -17,9 +17,8 @@ public class Tokenizer {
                 if(!currentStr.toString().equals("")){
                     res.add(new Token(currentStr.toString()));
                     currentStr = new StringBuilder();
-                }
-                else if(Character.toString(strExp.charAt(i))=="-")
-                    res.add(new Token(Token.getUnaryMinus()));
+                } else if(Character.toString(strExp.charAt(i)).equals("-"))
+                    res.add(new Token(Expression.getUnaryMinus()));
                 res.add(new Token(Character.toString(strExp.charAt(i))));
 
             }

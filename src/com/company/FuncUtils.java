@@ -7,7 +7,7 @@ import java.util.Vector;
 
 public class FuncUtils {
     static String[] functions = {"sin", "cos", "sqr", "sqrt", "pow"};
-    static String[] operators = {"+", "-", "/", "*"};
+    static String[] operators = {"+", "-", "/", "*", "~"};
     public static Collection<String> getOperators(){
         return Arrays.asList(operators);
     }
@@ -29,6 +29,7 @@ public class FuncUtils {
             case "cos":
             case "sqr":
             case "sqrt":
+            case "~":
                 return 1;
             case "pow":
             case "+":
@@ -46,6 +47,8 @@ public class FuncUtils {
             throw new Exception("Invalid token");
         }
         switch (op.toLowerCase(Locale.ROOT)){
+            case "~":
+                return -1*args.get(0);
             case ("sin"):
                 return Math.sin(Math.toRadians(args.get(0)));
             case ("cos"):
@@ -55,7 +58,7 @@ public class FuncUtils {
             case ("sqrt"):
                 return Math.sqrt(args.get(0));
             case ("pow"):
-                return Math.pow(args.get(0), args.get(1));
+                return Math.pow(args.get(1), args.get(0));
             case "+":
                 return args.get(0)+args.get(1);
             case "-":

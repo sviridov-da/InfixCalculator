@@ -1,11 +1,7 @@
 package com.company;
 
 public class Token {
-    public static String unaryMinus = "~";
 
-    public static String getUnaryMinus() {
-        return unaryMinus;
-    }
 
     TokenTypes type;
     String value;
@@ -23,7 +19,7 @@ public class Token {
             type=TokenTypes.OP;
         else if(FuncUtils.getFunctions().contains(value))
             type=TokenTypes.FUNC;
-        else if(value.equals(getUnaryMinus()))
+        else if(value.equals(Expression.getUnaryMinus()))
             type = TokenTypes.UNARY_MINUS;
         else{
             try {

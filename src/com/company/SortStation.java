@@ -13,6 +13,8 @@ public class SortStation {
             switch (token.getType()){
                 case NUM:
                 case VARIABLE:
+                    if(!stack.isEmpty() && stack.peek().getType()==TokenTypes.UNARY_MINUS)
+                        postfixExpression.add(stack.pop());
                     postfixExpression.add(token);
                     break;
                 case FUNC:
@@ -51,6 +53,7 @@ public class SortStation {
                             postfixExpression.add(stack.pop());
                     break;
                 case UNARY_MINUS:
+                    stack.push(token);
 
 
 

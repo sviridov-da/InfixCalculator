@@ -8,6 +8,7 @@ public class Expression {
     static String openParenthesis = "(";
     static String closingParenthesis = ")";
     static String splitter = ",";
+    static String unaryMinus = "~";
     public static String getOpenParenthesis(){
         return openParenthesis;
     }
@@ -17,6 +18,9 @@ public class Expression {
     public static String getSplitter() {
         return splitter;
     }
+    public static String getUnaryMinus() {
+        return unaryMinus;
+    }
     public static int getOperatorPriority(String op){
         switch (op){
             case "+":
@@ -25,6 +29,8 @@ public class Expression {
             case "*":
             case "/":
                 return 1;
+            case "~":
+                return 2;
             default:
                 return -1;
         }
@@ -49,7 +55,7 @@ public class Expression {
         }
     }
 
-    double getVariableValue(String variable){
+    public double getVariableValue(String variable){
         return  variables.get(variable);
     }
     boolean hasVariable(String var){

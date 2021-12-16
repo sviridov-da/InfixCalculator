@@ -4,11 +4,13 @@ import java.util.Stack;
 import java.util.Vector;
 
 public class PostfixCalculator {
-    public static double Calculate(Vector<Token> postfixExp) throws Exception {
+    public static double Calculate(Vector<Token> postfixExp, Expression expression) throws Exception {
         Stack<Double> stack = new Stack<Double>();
         for(Token token : postfixExp) {
             if (token.getType() == TokenTypes.NUM)
                 stack.push(Double.parseDouble(token.getValue()));
+            else if(token.getType() == TokenTypes.VARIABLE)
+                stack.push(expression.getVariableValue(token.getValue()));
             else if (token.getType() == TokenTypes.OP || token.getType() == TokenTypes.FUNC) {
                 Vector<Double> argsVector = new Vector<Double>(FuncUtils.getOperandsCount(token.getValue()));
                 try {
