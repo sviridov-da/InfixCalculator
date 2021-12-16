@@ -49,6 +49,8 @@ public class SortStation {
                     if(!stack.isEmpty())
                         if(stack.peek().getType()==TokenTypes.FUNC)
                             postfixExpression.add(stack.pop());
+                    break;
+                case UNARY_MINUS:
 
 
 

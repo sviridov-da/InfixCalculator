@@ -18,6 +18,8 @@ public class Tokenizer {
                     res.add(new Token(currentStr.toString()));
                     currentStr = new StringBuilder();
                 }
+                else if(Character.toString(strExp.charAt(i))=="-")
+                    res.add(new Token(Token.getUnaryMinus()));
                 res.add(new Token(Character.toString(strExp.charAt(i))));
 
             }
