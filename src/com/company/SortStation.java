@@ -12,6 +12,7 @@ public class SortStation {
         for (Token token : infixExpression){
             switch (token.getType()){
                 case NUM:
+                case VARIABLE:
                     postfixExpression.add(token);
                     break;
                 case FUNC:
